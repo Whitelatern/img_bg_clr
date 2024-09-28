@@ -85,12 +85,17 @@ WSGI_APPLICATION = 'colorization_project.wsgi.application'
 #     }
 # }
 
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
-   
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'image_d84v',
+        'USER': 'image_d84v_user',
+        'PASSWORD': 'BFzEsS6IDYWrhB29p2P6nCwBDFTTKK2P',
+        'HOST': 'dpg-crm251lumphs73eg2rs0-a.oregon-postgres.render.com',
+        'PORT': '5432',
+    }
 }
+
 
 
 
