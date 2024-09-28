@@ -19,6 +19,8 @@ urlpatterns = [
     path('admin-login/', views.admin_login, name='admin_login'),
 
     path('home', views.home, name='home'),
+
+    path('chat_home/', views.chat_home, name='chat_home'),
     
     
 ]
