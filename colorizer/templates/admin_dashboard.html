@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+            background-image: url('https://cdn.pixabay.com/photo/2017/09/11/15/58/sunset-2739472_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background-color: teal;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #17C3B2;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .dashboard-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, Admin</h1>
+        <p>This is the admin dashboard.</p>
+
+        <!-- Image Management Section -->
+        <h2>Image Management</h2>
+
+        <!-- Button Section -->
+        <div class="button-container">
+            <!-- Link to Add New Image -->
+            <a href="{% url 'image_add' %}">
+                <button>Add New Image</button>
+            </a>
+
+            <!-- Link to Image List -->
+            <a href="{% url 'image_list' %}">
+                <button>View Image List</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .add-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: teal;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #17C3B2;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        img {
+            border-radius: 8px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 5px 10px;
+            color: white;
+            background-color: #ff5a5f;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        a.edit {
+            background-color: #17C3B2;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .edit:hover {
+            background-color: #1F9C90;
+        }
+
+        .delete:hover {
+            background-color: #ff2e30;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Images</h1>
+        <a href="{% url 'image_add' %}" class="add-button">Add New Image</a>
+        <ul>
+            {% for image in images %}
+            <li>
+                <img src="{{ image.image.url }}" alt="{{ image.name }}">
+                <p>{{ image.name }}</p>
+                <a href="{% url 'image_edit' image.id %}" class="edit">Edit</a>
+                <a href="{% url 'image_delete' image.id %}" class="delete">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

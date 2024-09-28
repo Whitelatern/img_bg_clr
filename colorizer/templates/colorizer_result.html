@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colorization Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://img.freepik.com/premium-vector/white-gradient-background-abstract-modern-design_343694-3077.jpg?w=1060');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+            max-width: 80%;
+            width: 800px;
+        }
+        .container h1, .container h2 {
+            margin: 10px 0;
+        }
+        .container img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button-container a {
+            text-decoration: none;
+        }
+        button {
+            padding: 0.8em 1.8em;
+            border: 2px solid #17C3B2;
+            position: relative;
+            overflow: hidden;
+            background-color: transparent;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: .3s;
+            z-index: 1;
+            font-family: inherit;
+            color: #17C3B2;
+            cursor: pointer;
+            width: 180px; /* Adjust button width as needed */
+        }
+        button::before {
+            content: '';
+            width: 0;
+            height: 300%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: #17C3B2;
+            transition: .5s ease;
+            display: block;
+            z-index: -1;
+        }
+        button:hover::before {
+            width: 105%;
+        }
+        button:hover {
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Colorization Result</h1>
+        
+        <h2>Colorized Image (ECCV 16)</h2>
+        <img id="colorizedImage" src="data:image/png;base64,{{ out_img_eccv16 }}" alt="Colorized Image ECCV 16">
+        
+        <div class="button-container">
+            <a href="{% url 'colorizer_home' %}">
+                <button>Go to Home</button>
+            </a>
+            
+            <a id="downloadLink" download="colorized_image.png">
+                <button onclick="downloadImage()">Download Image</button>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        function downloadImage() {
+            var link = document.getElementById('downloadLink');
+            var image = document.getElementById('colorizedImage').src;
+            link.href = image;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54050.jpg?w=1380&t=st=1727503083~exp=1727503683~hmac=d5c3c60d0c3f0d711ccdc9460f9ca9fcc4a6049b254a9e7b2d53b1f8821f1114');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+        .form-container {
+            width: 350px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 20px 30px;
+        }
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 10px 0 30px 0;
+            color: #333;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 15px;
+        }
+        .input {
+            border-radius: 20px;
+            border: 1px solid #c0c0c0;
+            outline: 0 !important;
+            box-sizing: border-box;
+            padding: 12px 15px;
+        }
+        .form-btn {
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 0 !important;
+            outline: 0 !important;
+            background-color: teal;
+            color: white;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        .form-btn:hover {
+            background-color: #17C3B2;
+        }
+        .sign-up-label {
+            margin: 0;
+            font-size: 14px;
+            color: #747474;
+            text-align: center;
+        }
+        .sign-up-link {
+            margin-left: 1px;
+            text-decoration: underline;
+            color: teal;
+            cursor: pointer;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="title">Create an Account</p>
+        <form class="form" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" class="input" placeholder="Username" required>
+            <input type="text" name="email" class="input" placeholder="email" required>
+            <input type="password" name="password1" class="input" placeholder="Password" required>
+            <input type="password" name="password2" class="input" placeholder="Confirm Password" required>
+            <button type="submit" class="form-btn">Sign Up</button>
+        </form>
+        <p class="sign-up-label">
+            Already have an account? <a href="{% url 'login' %}" class="sign-up-link">Log in</a>
+        </p>
+        
+        {% if messages %}
+        {% for message in messages %}
+            <script>alert("{{ message }}");</script>
+        {% endfor %}
+    {% endif %}
+    </div>
+</body>
+</html>
