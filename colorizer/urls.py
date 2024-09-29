@@ -20,7 +20,7 @@ urlpatterns = [
 
     path('home', views.home, name='home'),
 
-    path('chat_home/', views.chat_home, name='chat_home'),
+    
     
     
 ]
