@@ -5,6 +5,28 @@
     <title>Image Colorization</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Sticky Chatbot Button */
+.chatbot-btn {
+    position: fixed;
+    right: 20px; /* This keeps it 20px from the right side */
+    bottom: 20px; /* This keeps it 20px from the bottom */
+    background-color: #007bff; /* Button color */
+    color: white;
+    border: none;
+    padding: 15px; /* Padding for the button */
+    border-radius: 50%; /* Makes it a circle */
+    font-size: 20px; /* Font size for the icon */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for hover effect */
+}
+.chatbot-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+    </style>
 </head>
 <body>
     <center>
@@ -27,6 +49,12 @@
         </div>
     </div>
     
+<!-- Chatbot Button -->
+<button type="button" class="chatbot-btn" 
+        onclick="window.location.href='{% url 'chat_home' %}'">  
+    Ask ?
+    🗨️
+</button>
 
 
       <!-- Displaying images from the database -->
