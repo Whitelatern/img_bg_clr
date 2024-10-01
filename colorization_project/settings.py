@@ -78,23 +78,23 @@ WSGI_APPLICATION = 'colorization_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'image_colorization.sqlite3',  # Change the file name here
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'image_d84v',
-        'USER': 'image_d84v_user',
-        'PASSWORD': 'BFzEsS6IDYWrhB29p2P6nCwBDFTTKK2P',
-        'HOST': 'dpg-crm251lumphs73eg2rs0-a.oregon-postgres.render.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'image_colorization.sqlite3',  # Change the file name here
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'image_d84v',
+#         'USER': 'image_d84v_user',
+#         'PASSWORD': 'BFzEsS6IDYWrhB29p2P6nCwBDFTTKK2P',
+#         'HOST': 'dpg-crm251lumphs73eg2rs0-a.oregon-postgres.render.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 
